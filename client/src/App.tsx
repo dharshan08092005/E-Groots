@@ -19,9 +19,11 @@ import Signup from "@/pages/signup";
 import Profile from "@/pages/profile";
 import Help from "@/pages/help";
 import NocodeEditor from "./pages/no-code-editor";
+import CodingLearning from "@/pages/coding-learning";
+import CodingLearnTopic from "@/pages/coding-learn-topic";
+import CodeEditorPage from "@/pages/code-editor";
 import RoboticsHelper from "./pages/robotics-helper";
-import CodingPlayground from "@/pages/coding-playground";
-
+import Settings from "@/pages/settings";
 function LoadingScreen() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
@@ -115,13 +117,22 @@ function Router() {
         <ProtectedRoute component={RoboticsHelper} />
       </Route>
       <Route path="/coding">
-        <ProtectedRoute component={CodingPlayground} />
+        <ProtectedRoute component={CodingLearning} />
+      </Route>
+      <Route path="/coding/learn/:topic">
+        <ProtectedRoute component={CodingLearnTopic} />
+      </Route>
+      <Route path="/code-editor">
+        <ProtectedRoute component={CodeEditorPage} />
       </Route>
       <Route path="/courses/:id">
         <ProtectedRoute component={CourseDetail} />
       </Route>
       <Route path="/profile">
         <ProtectedRoute component={Profile} />
+      </Route>
+      <Route path="/settings">
+        <ProtectedRoute component={Settings} />
       </Route>
       <Route path="/help">
         <ProtectedRoute component={Help} />
